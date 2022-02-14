@@ -31,7 +31,7 @@ This is week 7 of Makers Bootcamp - working as a team to engineer a project.
   - Until a user has confirmed a booking request, that space can still be booked for that night.
   
 
-  ## Additional Functionality
+  ### Additional Functionality
 
   - Any signed-up user can list a new space.
   - Users can list multiple spaces.
@@ -57,6 +57,26 @@ This is week 7 of Makers Bootcamp - working as a team to engineer a project.
   - A ‘chat’ functionality once a space has been booked, allowing users whose space-booking request has been confirmed to chat with the user that owns that space
   - Basic payment implementation though Stripe.
 </details>
+<br>
+
+<details>
+<summary>User Stories<summary>
+<br>
+
+  1. As a new user So that I can use the service I want to be able to create an account (sign up)
+
+  2. As a user So that I can advertise my space I want to be able to list a space
+
+  3. As a user So that I can see a space I want to be able to see the name. description and price of the space
+
+  4. As a user So that I can stay in a space I want to be able to request to hire a space for one night
+
+  5. As an owner of a space So that I can manage my bookings I want to be able to approve a booking request
+
+  6. As a User So I'm not booking a space that is already booked I want to be able see dates when space is already booked.
+
+  7. As an owner So that I can approve bookings I want my space to remain available until I have confirmed a booking
+<details>
 
 
 
