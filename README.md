@@ -84,6 +84,10 @@ This is week 7 of Makers Bootcamp - working as a team to engineer a project.
   7. As an owner<br> So that I can approve bookings<br> I want my space to remain available until I have confirmed a booking
 </details>
 
+<details>
+<summary>Reflection</summary>
+</details>
+
 
 
 
