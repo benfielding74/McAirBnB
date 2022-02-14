@@ -20,6 +20,7 @@ This is week 7 of Makers Bootcamp - working as a team to engineer a project.
 
 <details>
  <summary>Project specification</summary>
+ <br>
 
   - Any signed-up user can list a new space.
   - Users can list multiple spaces.
@@ -28,7 +29,7 @@ This is week 7 of Makers Bootcamp - working as a team to engineer a project.
   - Any signed-up user can request to hire any space for one night, and this     should be approved by the user that owns that space.
   - Nights for which a space has already been booked should not be available for users to book that space.
   - Until a user has confirmed a booking request, that space can still be booked for that night.
-  </details>
+  
 
   ## Additional Functionality
 
@@ -55,7 +56,7 @@ This is week 7 of Makers Bootcamp - working as a team to engineer a project.
   - Their request to book a space is denied
   - A ‘chat’ functionality once a space has been booked, allowing users whose space-booking request has been confirmed to chat with the user that owns that space
   - Basic payment implementation though Stripe.
-
+</details>
 
 
 
