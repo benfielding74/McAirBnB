@@ -67,21 +67,21 @@ This is week 7 of Makers Bootcamp - working as a team to engineer a project.
 <summary>User Stories</summary>
 <br>
 
-  1. As a new user
-  So that I can use the service
+  1. As a new user<br>
+  So that I can use the service<br>
   I want to be able to create an account (sign up)
 
-  2. As a user So that I can advertise my space I want to be able to list a space
+  2. As a user<br> So that I can advertise my space<br> I want to be able to list a space
 
-  3. As a user So that I can see a space I want to be able to see the name. description and price of the space
+  3. As a user<br> So that I can see a space<br> I want to be able to see the name. description and price of the space
 
-  4. As a user So that I can stay in a space I want to be able to request to hire a space for one night
+  4. As a user<br> So that I can stay in a space<br> I want to be able to request to hire a space for one night
 
-  5. As an owner of a space So that I can manage my bookings I want to be able to approve a booking request
+  5. As an owner of a space<br> So that I can manage my bookings<br> I want to be able to approve a booking request
 
-  6. As a User So I'm not booking a space that is already booked I want to be able see dates when space is already booked.
+  6. As a User<br> So I'm not booking a space that is already booked<br> I want to be able see dates when space is already booked.
 
-  7. As an owner So that I can approve bookings I want my space to remain available until I have confirmed a booking
+  7. As an owner<br> So that I can approve bookings<br> I want my space to remain available until I have confirmed a booking
 </details>
 
 
