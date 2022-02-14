@@ -76,7 +76,7 @@ This is week 7 of Makers Bootcamp - working as a team to engineer a project.
   6. As a User So I'm not booking a space that is already booked I want to be able see dates when space is already booked.
 
   7. As an owner So that I can approve bookings I want my space to remain available until I have confirmed a booking
-<details>
+</details>
 
 
 
