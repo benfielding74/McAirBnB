@@ -67,7 +67,9 @@ This is week 7 of Makers Bootcamp - working as a team to engineer a project.
 <summary>User Stories</summary>
 <br>
 
-  1. As a new user So that I can use the service I want to be able to create an account (sign up)
+  1. As a new user
+  So that I can use the service
+  I want to be able to create an account (sign up)
 
   2. As a user So that I can advertise my space I want to be able to list a space
 
@@ -81,6 +83,8 @@ This is week 7 of Makers Bootcamp - working as a team to engineer a project.
 
   7. As an owner So that I can approve bookings I want my space to remain available until I have confirmed a booking
 </details>
+
+
 
 
 
