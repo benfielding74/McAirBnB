@@ -1,8 +1,10 @@
 # McAirBnB
 
 This is week 7 of Makers Bootcamp - working as a team to engineer a project.
+<br>
 
-## Objectives of this week are: 
+<details>
+<summary>Objectives of this week are:</summary> 
 
  - work in teams to build a clone of Airbnb.
 
@@ -17,6 +19,8 @@ This is week 7 of Makers Bootcamp - working as a team to engineer a project.
  - Use a branch/PR/merge git workflow.
 
  - Give and receive meaningful code review.
+ </details>
+ <br>
 
 <details>
  <summary>Project specification</summary>
