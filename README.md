@@ -60,7 +60,7 @@ This is week 7 of Makers Bootcamp - working as a team to engineer a project.
 <br>
 
 <details>
-<summary>User Stories<summary>
+<summary>User Stories</summary>
 <br>
 
   1. As a new user So that I can use the service I want to be able to create an account (sign up)
