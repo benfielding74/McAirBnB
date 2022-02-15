@@ -1,13 +1,19 @@
-  <form action='/index'>
+  <h2>
+    <%= @flash %>
+  </h2>
+  
+  
+  
+  <form action='/authenticate' method='post'>
     <ul>
       <label for="name">Username:</label>
-      <input type="text" id="name" name="user_name">
+      <input type="text" id="name" name="user_name" required>
     </ul>
     <ul>
       <label for="name">Password:</label>
-      <input type="text" id="password" name="password"> 
+      <input type="password" id="password" name="password" required> 
     </ul>   
     <ul> 
-      <button type="submit">Login</button></tr>
+      <button type="submit" name="login">Login</button></tr>
     </ul>
   </form>

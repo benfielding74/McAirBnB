@@ -6,6 +6,7 @@ gem 'pg'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'webdriver'
+gem 'bcrypt'
 
 group :test do
   gem 'capybara'

@@ -24,6 +24,18 @@ class Mcairbnb < Sinatra::Base
     erb(:login)
   end
 
+  post '/authenticate' do
+    @user_name = params[:user_name]
+    @password = params[:password]
+    user = User.login(@user_name, @password)
+    if user
+    redirect '/home'
+    else
+      @flash = 'Please check your email or password'
+      redirect '/login'
+    end
+  end
+
   get '/home' do
     Home.connect('mcairbnb')
     @homes = Home.list_homes
