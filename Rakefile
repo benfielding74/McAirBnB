@@ -67,7 +67,7 @@ namespace :homes do
 
   task :seed_homes_test do
     connection = PG.connect :dbname => 'mcairbnb_test';
-    connection.exec ("INSERT INTO homes(name, description, price) VALUES ('example_name', 'example_description', 'example_price');")
+    connection.exec ("INSERT INTO homes(name, description, price) VALUES ('example_name', 'example_description', '9.99');")
 
   end
 end

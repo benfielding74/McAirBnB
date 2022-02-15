@@ -1,0 +1,9 @@
+ <% if @user_name %>
+  <h3>Welcome to McAirbnb <%= @user_name %></h3>
+  <% end %>
+
+  <ul>
+     <% @homes.each do |home| %>
+      <li><%= home %></li>
+      <% end %>
+  </ul>

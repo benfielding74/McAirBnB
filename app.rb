@@ -16,7 +16,7 @@ class Mcairbnb < Sinatra::Base
     @user_name = params[:user_name]
     @password = params[:password]
     User.signup(@user_name, @password)
-    redirect '/index'
+    redirect '/home'
   end
 
   get '/login' do
