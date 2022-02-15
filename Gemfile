@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-em 'pg'
+gem 'pg'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'webdriver'
