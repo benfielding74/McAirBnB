@@ -8,6 +8,10 @@ require './lib/home'
 class McAirBnB < Sinatra::Base
   enable :sessions
 
+  def unwrap(result_object)
+    result_object.values[0][0]
+  end
+
   get '/' do
     erb(:index)
   end
@@ -34,6 +38,22 @@ class McAirBnB < Sinatra::Base
     Home.connect('mcairbnb')
     @homes = Home.list_homes
     erb(:home)
+  end
+
+  get '/home/' do
+    redirect '/home'
+  end
+
+  get '/home/*' do
+    connection = PG.connect(dbname: 'mcairbnb')
+    name = params['splat'].first
+    description = connection.exec("SELECT description from homes where name='#{name}';")
+    @description = unwrap(description)
+
+    price = connection.exec("SELECT price from homes where name='#{name}';")
+    @price = unwrap(price)
+
+    ["<p> NAME: #{name}", "<p> DESCRIPTION: #{@description}", "<p> PRICE: #{@price}"]
   end
 
   run! if app_file == $PROGRAM_NAME
