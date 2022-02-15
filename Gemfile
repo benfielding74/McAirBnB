@@ -2,4 +2,9 @@
 
 source "https://rubygems.org"
 
-# gem "rails"
+gem 'sinatra'
+gem 'rspec'
+gem 'capybara'
+gem 'sinatra-contrib'
+gem 'webdriver'
+gem 'pg'
