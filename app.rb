@@ -4,7 +4,7 @@ require './lib/user'
 
 class Mcairbnb < Sinatra::Base
 
-  get '/index' do
+  get '/' do
     erb(:index)
   end
 
@@ -21,6 +21,11 @@ class Mcairbnb < Sinatra::Base
 
   get '/login' do
     erb(:login)
+  end
+
+  get '/home' do
+    @homes = ["Lovely Home", "It's a house", "9.99 per night"]
+    erb(:home)
   end
 
   run! if app_file == $0

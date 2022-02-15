@@ -1,9 +1,11 @@
- <% if @user_name %>
-  <h3>Welcome to McAirbnb <%= @user_name %></h3>
-  <% end %>
+ <div>
+  <h3>Welcome to McAirbnb <%= "#{@user_name}" %></h3>
+
+  </div>
 
   <ul>
      <% @homes.each do |home| %>
       <li><%= home %></li>
       <% end %>
   </ul>
+  
