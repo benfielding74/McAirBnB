@@ -2,9 +2,18 @@
 
 source "https://rubygems.org"
 
+gem 'pg'
 gem 'sinatra'
-gem 'rspec'
-gem 'capybara'
 gem 'sinatra-contrib'
 gem 'webdriver'
-gem 'pg'
+
+group :test do
+  gem 'capybara'
+  gem 'rspec'
+  gem 'simplecov', require: false
+  gem 'simplecov-console', require: false
+end
+
+group :development, :test do
+  gem 'rubocop', '1.20'
+end
