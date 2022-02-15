@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sinatra/reloader'
 
 class Mcairbnb < Sinatra::Base
 
