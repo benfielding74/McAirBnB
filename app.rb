@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require './lib/user'
+require './lib/home'
 
 class Mcairbnb < Sinatra::Base
 
@@ -24,7 +25,8 @@ class Mcairbnb < Sinatra::Base
   end
 
   get '/home' do
-    @homes = ["Lovely Home", "It's a house", "9.99 per night"]
+    Home.connect('mcairbnb')
+    @homes = Home.list_homes
     erb(:home)
   end
 
