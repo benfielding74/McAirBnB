@@ -4,11 +4,11 @@
   </form>
 
   <form action="/signupform">
-  <button type="submit">signup</button>
+  <button type="submit" name="signup">signup</button>
   </form>
 
-  <% if @first_name %>
-  Welcome to McAirbnb <%= @first_name %>
+  <% if @user_name %>
+  <h3>Welcome to McAirbnb <%= @user_name %></h3>
   <% end %>
 
 
