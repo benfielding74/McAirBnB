@@ -13,4 +13,5 @@ class Home
     result.map { |home| home['name'] }
   end
 
+
 end
