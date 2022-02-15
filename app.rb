@@ -3,8 +3,7 @@ require 'sinatra'
 class Mcairbnb < Sinatra::Base
 
   get '/index' do
-    @first_name = params[:first_name]
-    @surname_name = params[:surname_name]
+    @user_name = params[:user_name]
     @email = params[:email]
     erb(:index)
   end
