@@ -1,6 +1,15 @@
 GEM
   remote: https://rubygems.org/
   specs:
+
+PLATFORMS
+  arm64-darwin-20
+
+DEPENDENCIES
+
+BUNDLED WITH
+   2.3.6
+=======
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     capybara (3.36.0)
@@ -68,3 +77,4 @@ DEPENDENCIES
 
 BUNDLED WITH
    2.3.5
+
