@@ -4,13 +4,12 @@ source 'https://rubygems.org'
 
 ruby '3.0.0'
 
+gem 'bcrypt'
 gem 'pg'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'webdriver'
-gem 'bcrypt'
 gem 'webrick'
-
 
 group :test do
   gem 'capybara'

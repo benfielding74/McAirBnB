@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 feature 'authentication' do
   it 'a user can sign in' do
-    User.signup('Steve', 'Password123', db='mcairbnb')
+    User.connect('mcairbnb')
+    User.signup('Steve', 'Password123')
 
     visit '/login'
     fill_in(:user_name, with: 'Steve')

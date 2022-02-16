@@ -4,39 +4,34 @@ require 'pg'
 require 'bcrypt'
 
 class User
-
   attr_reader :signup, :add_home
-  
 
+  @@connection = nil
 
-  def self.signup(user_name, password, db="mcairbnb")
-  #  encrypted_password = BCrypt::Password.create(password)
+  def self.connect(dbname)
+    @@connection = PG.connect(dbname: dbname)
+  end
+
+  def self.signup(user_name, password)
+    #  encrypted_password = BCrypt::Password.create(password)
     encrypted_password = password
     @user_name = user_name
-    connection = PG.connect(dbname: db)
-    connection.exec("INSERT INTO users (name, password) VALUES ('#{@user_name}', '#{encrypted_password}');")
-    return connection
+    @@connection.exec("INSERT INTO users (name, password) VALUES ('#{@user_name}', '#{encrypted_password}');")
+    @@connection
   end
-
 
   def self.add_home(name, description, price)
-    connection = PG.connect(dbname: 'mcairbnb')
-    connection.exec("INSERT INTO homes (name, description, price) VALUES ('#{name}','#{description}','#{price}');")
+    @@connection.exec("INSERT INTO homes (name, description, price) VALUES ('#{name}','#{description}','#{price}');")
+    @@connection
   end
 
-  def self.login(user_name, password, db="mcairbnb")
-    connection = PG.connect(dbname: db)
-    result = connection.exec("SELECT * FROM users WHERE name = $1",
-        [user_name]
-    )
-    if result.num_tuples.zero? 
+  def self.login(user_name, password)
+    result = @@connection.exec('SELECT * FROM users WHERE name = $1',
+                               [user_name])
+    if result.num_tuples.zero?
       false
     else
-      if result.values[0][2] == password
-        true
-      else
-        false
-      end
+      result.values[0][2] == password
     end
   end
 end

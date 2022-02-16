@@ -29,7 +29,7 @@ class McAirBnB < Sinatra::Base
   end
 
   get '/login' do
-    session[:flash] ? @flash = session[:flash] : @flash = ""
+    @flash = session[:flash] || ''
     erb(:login)
   end
 
@@ -38,9 +38,9 @@ class McAirBnB < Sinatra::Base
     @password = params[:password]
     session[:user_name] = @user_name
     user = User.login(@user_name, @password)
-    
+
     if user
-    redirect '/home'
+      redirect '/home'
     else
       session[:flash] = 'Please check your email or password'
       redirect '/login'
