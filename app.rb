@@ -28,6 +28,7 @@ class McAirBnB < Sinatra::Base
   post '/signup' do
     @user_name = params[:user_name]
     @password = params[:password]
+    User.connect(select_database)
     User.signup(@user_name, @password)
     session[:user_name] = @user_name
     redirect '/home'
