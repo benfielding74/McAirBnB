@@ -61,6 +61,7 @@ class McAirBnB < Sinatra::Base
   get '/home/*' do
     connection = PG.connect(dbname: 'mcairbnb')
     name = params['splat'].first
+
     description = connection.exec("SELECT description from homes where name='#{name}';")
     @description = unwrap(description)
 
