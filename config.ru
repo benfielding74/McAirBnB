@@ -1,4 +1,4 @@
-require_relative "./app"
-run Mcairbnb
+# frozen_string_literal: true
 
-
+require_relative './app'
+run McAirBnB
