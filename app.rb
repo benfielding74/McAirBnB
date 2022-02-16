@@ -23,30 +23,32 @@ class McAirBnB < Sinatra::Base
   post '/signup' do
     @user_name = params[:user_name]
     @password = params[:password]
-    session[:user_name] = @user_name
     User.signup(@user_name, @password)
+    session[:user_name] = @user_name
     redirect '/home'
   end
 
   get '/login' do
+    session[:flash] ? @flash = session[:flash] : @flash = ""
     erb(:login)
   end
 
   post '/authenticate' do
     @user_name = params[:user_name]
     @password = params[:password]
+    session[:user_name] = @user_name
     user = User.login(@user_name, @password)
+    
     if user
     redirect '/home'
     else
-      @flash = 'Please check your email or password'
+      session[:flash] = 'Please check your email or password'
       redirect '/login'
     end
   end
 
   get '/home' do
     @user_name = session[:user_name]
-    p params
     Home.connect('mcairbnb')
     @homes = Home.list_homes
     erb(:home)
