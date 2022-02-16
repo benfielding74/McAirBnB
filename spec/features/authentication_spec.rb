@@ -2,7 +2,7 @@
 
 feature 'authentication' do
   it 'a user can sign in' do
-    User.connect('mcairbnb')
+    User.connect('mcairbnb_test')
     User.signup('Steve', 'Password123')
 
     visit '/login'

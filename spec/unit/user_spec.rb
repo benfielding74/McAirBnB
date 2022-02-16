@@ -5,7 +5,7 @@ require 'user'
 describe User do
   describe '.signup' do
     it 'creates a new user' do
-      User.connect('mcairbnb')
+      User.connect('mcairbnb_test')
       connection = User.signup('John', 'Seekrit')
       result = connection.exec('SELECT name FROM users')
       result = result.map { |user| user['name'] }

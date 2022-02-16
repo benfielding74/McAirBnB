@@ -8,6 +8,11 @@ require './lib/home'
 class McAirBnB < Sinatra::Base
   enable :sessions
 
+  def select_database
+    'mcairbnb_test' if ENV['ENVIRONMENT'] == 'test'
+    'mcairbnb'
+  end
+
   def unwrap(result_object)
     result_object.values[0][0]
   end
@@ -37,6 +42,7 @@ class McAirBnB < Sinatra::Base
     @user_name = params[:user_name]
     @password = params[:password]
     session[:user_name] = @user_name
+    User.connect(select_database)
     user = User.login(@user_name, @password)
 
     if user
@@ -49,7 +55,7 @@ class McAirBnB < Sinatra::Base
 
   get '/home' do
     @user_name = session[:user_name]
-    Home.connect('mcairbnb')
+    Home.connect(select_database)
     @homes = Home.list_homes
     erb(:home)
   end
@@ -59,7 +65,7 @@ class McAirBnB < Sinatra::Base
   end
 
   get '/home/*' do
-    connection = PG.connect(dbname: 'mcairbnb')
+    connection = PG.connect(dbname: select_database)
     name = params['splat'].first
 
     description = connection.exec("SELECT description from homes where name='#{name}';")
