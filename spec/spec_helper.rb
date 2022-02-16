@@ -22,7 +22,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 
-Capybara.app = McAirBnB
+Capybara.app = Mcairbnb
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate

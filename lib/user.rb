@@ -4,7 +4,9 @@ require 'pg'
 require 'bcrypt'
 
 class User
-  attr_reader :signup
+
+  attr_reader :signup :add_home
+  
 
 
   def self.signup(user_name, password, db="mcairbnb")
@@ -14,6 +16,15 @@ class User
     connection = PG.connect(dbname: db)
     connection.exec("INSERT INTO users (name, password) VALUES ('#{@user_name}', '#{encrypted_password}');")
     return connection
+  end
+
+
+  def self.add_home(home_name, description, price)
+    @home_name = home_name
+    @description = description
+    @price = price
+    connection = PG.connect(dbname: 'mcairbnb')
+    connection.exec("INSERT INTO homes (name, description, price) VALUES ('#{@home_name}', '#{@description}, '#{@price}');")
   end
 
   def self.login(user_name, password, db="mcairbnb")
