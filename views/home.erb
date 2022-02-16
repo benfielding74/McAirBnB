@@ -1,11 +1,13 @@
+
   
     <h3>Welcome to McAirbnb <%= "#{@user_name}" %></h3>
 
 
-
   <ul>
-    <% @homes.each do |home| %>
-      <li><%= home %></li>
+
+     <% @homes.each do |home| %>
+       <li><a href="/home/<%=home%>"><%= home %></a></li>
+
       <% end %>
   </ul>
   

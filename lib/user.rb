@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'pg'
 require 'bcrypt'
 
 class User
-
   attr_reader :signup
+
 
   def self.signup(user_name, password)
     encrypted_password = BCrypt::Password.create(password)
@@ -19,5 +21,4 @@ class User
     )
     return unless result.any?
   end
-
 end
