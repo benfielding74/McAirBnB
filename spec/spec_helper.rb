@@ -15,6 +15,7 @@
 # it.
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
 
@@ -29,7 +30,8 @@ require 'simplecov-console'
 Capybara.app = McAirBnB
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-    SimpleCov::Formatter::Console])
+                                                                 SimpleCov::Formatter::Console
+                                                               ])
 SimpleCov.start
 
 RSpec.configure do |config|

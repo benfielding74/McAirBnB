@@ -10,7 +10,8 @@ class McAirBnB < Sinatra::Base
   enable :sessions
 
   def select_database
-    'mcairbnb_test' if ENV['ENVIRONMENT'] == 'test'
+    return 'mcairbnb_test' if ENV['ENVIRONMENT'] == 'test'
+
     'mcairbnb'
   end
 
@@ -37,6 +38,7 @@ class McAirBnB < Sinatra::Base
 
   get '/login' do
     @flash = session[:flash] || ''
+    User.connect(select_database)
     erb(:login)
   end
 
@@ -44,7 +46,6 @@ class McAirBnB < Sinatra::Base
     @user_name = params[:user_name]
     @password = params[:password]
     session[:user_name] = @user_name
-    User.connect(select_database)
     user = User.login(@user_name, @password)
 
     if user

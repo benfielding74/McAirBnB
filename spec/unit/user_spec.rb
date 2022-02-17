@@ -3,7 +3,7 @@
 require 'user'
 
 describe User do
-  before(:all) {User.connect('mcairbnb_test')}
+  before(:all) { User.connect('mcairbnb_test') }
   describe '.signup' do
     it 'creates a new user' do
       connection = User.signup('John', 'Seekrit')
