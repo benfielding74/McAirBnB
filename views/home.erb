@@ -5,7 +5,14 @@
     <li><a href="/home/<%=home%>"><%= home %></a></li>
   <% end %>
 </ul>
-
-<form action="/bookingsform">
-        <button type="submit" name="check_availability">Check Availability</button>
+  
+<form action='/listing' method='post'>
+  <input type="text" name="name" placeholder='Home title - max 60 chars' maxlength='60' required/>
+  <input type="text" name="description" placeholder='Home description - max 255 chars' maxlength='60' required/>
+  <input type="text" name="price" placeholder='Price per night' maxlength='8' required/>
+  <input type="submit" value="Submit listing" />
 </form>
+
+<!--<form action="/bookingsform">
+        <button type="submit" name="check_availability">Check Availability</button>
+</form>-->

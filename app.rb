@@ -67,6 +67,15 @@ class McAirBnB < Sinatra::Base
     redirect '/home'
   end
 
+  post '/listing' do
+    @name = params[:name]
+    @description = params[:description]
+    @price = params[:price]
+    Home.connect(select_database)
+    User.add_home(@name, @description, @price)
+    redirect '/home'
+  end
+
   get '/home/*' do
     connection = PG.connect(dbname: select_database)
     name = params['splat'].first
