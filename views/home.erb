@@ -1,18 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<h1>Welcome to McAirBnB <%= @user_name %></h1>
-<ul>
-  <% @homes.each do |home| %>
-    <li><a href="/home/<%=home%>"><%= home %></a></li>
-  <% end %>
-</ul>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Stylesheet CSS -->
+    <style> @import url("./public/styles.css"); </style>
+    <title>McAirBnb</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white p-3">
+      <h1 class="mx-auto text-warning">McAirBnB</h1>
+      <span class="navbar-text">
+        <p>Welcome to McAirBnB <%= @user_name %></p>
+      </span>
+    </nav>  
+    <div class="container">
+      <ul>
+        <% @homes.each do |home| %>
+         <li><a href="/home/<%=home%>"><%= home %></a></li>
+        <% end %>
+      </ul>
   
-<form action='/listing' method='post'>
-  <input type="text" name="name" placeholder='Home title - max 60 chars' maxlength='60' required/>
-  <input type="text" name="description" placeholder='Home description - max 255 chars' maxlength='60' required/>
-  <input type="text" name="price" placeholder='Price per night' maxlength='8' required/>
-  <input type="submit" value="Submit listing" />
-</form>
+      <form action='/listing' method='post'>
+        <input type="text" name="name" placeholder='Home title - max 60 chars' maxlength='60' required/>
+        <input type="text" name="description" placeholder='Home description - max 255 chars' maxlength='60' required/>
+        <input type="text" name="price" placeholder='Price per night' maxlength='8' required/>
+        <input type="submit" value="Submit listing" />
+      </form>
+    </div>
 
 <!--<form action="/bookingsform">
         <button type="submit" name="check_availability">Check Availability</button>
-</form>-->
+    </form>-->
+ </body>
+</html>
