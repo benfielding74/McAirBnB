@@ -4,6 +4,7 @@ require 'sinatra'
 require 'sinatra/reloader'
 require './lib/user'
 require './lib/home'
+require './lib/bookings'
 
 class McAirBnB < Sinatra::Base
   enable :sessions
@@ -76,6 +77,17 @@ class McAirBnB < Sinatra::Base
     @price = unwrap(price)
 
     ["<p> NAME: #{name}", "<p> DESCRIPTION: #{@description}", "<p> PRICE: #{@price}"]
+  end
+
+  get '/bookingsform' do
+    @bookings = Bookings.list_bookings
+    erb(:bookingsform)
+  end
+
+  post '/booked' do
+    @start_date = params[:start_date]
+    @end_date = params[:end_date]
+    erb(:confirmation)
   end
 
   run! if app_file == $PROGRAM_NAME

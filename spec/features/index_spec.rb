@@ -1,3 +1,4 @@
+
 # frozen_string_literal: true
 
 feature 'viewing index page' do
@@ -11,3 +12,4 @@ feature 'viewing index page' do
     expect(page).to have_content 'Welcome to McAirBnB John'
   end
 end
+

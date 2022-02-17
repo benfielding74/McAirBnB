@@ -1,7 +1,11 @@
+
 <h1>Welcome to McAirBnB <%= @user_name %></h1>
 <ul>
   <% @homes.each do |home| %>
     <li><a href="/home/<%=home%>"><%= home %></a></li>
   <% end %>
 </ul>
-  
+
+<form action="/bookingsform">
+        <button type="submit" name="check_availability">Check Availability</button>
+</form>
