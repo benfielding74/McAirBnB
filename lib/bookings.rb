@@ -7,8 +7,8 @@ class Bookings
 
   @@connection = nil
 
-  def self.connect(_dbname)
-    @@connection = PG.connect(dbname: db)
+  def self.connect(dbname)
+    @@connection = PG.connect(dbname: dbname)
   end
 
   def self.list_bookings
