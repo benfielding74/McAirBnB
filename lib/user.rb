@@ -4,23 +4,27 @@ require 'pg'
 require 'bcrypt'
 
 class User
-  attr_reader :signup
+  attr_reader :signup, :add_home
 
-  def self.signup(user_name, password, db="mcairbnb")
-    encrypted_password = BCrypt::Password.create(password)
-    #encrypted_password = password
-    @user_name = user_name
-    connection = PG.connect(dbname: db)
-    result = connection.exec("INSERT INTO users (name, password) VALUES ('#{@user_name}', '#{encrypted_password}');")
-    return connection
+  @@connection = nil
+
+  def self.connect(dbname)
+    @@connection = PG.connect(dbname: dbname)
   end
 
-  def self.login(user_name, password, db="mcairbnb")
-    connection = PG.connect(dbname: db)
-    result = connection.exec("SELECT * FROM users WHERE name = $1",
-        [user_name]
-    )
+  def self.signup(user_name, password)
+    encrypted_password = BCrypt::Password.create(password)
+    @@connection.exec("INSERT INTO users (name, password) VALUES ('#{user_name}', '#{encrypted_password}');")
+    @@connection
+  end
 
+  def self.add_home(name, description, price)
+    @@connection.exec("INSERT INTO homes (name, description, price) VALUES ('#{name}','#{description}','#{price}');")
+    @@connection
+  end
+
+  def self.login(user_name, password)
+    result = @@connection.exec('SELECT * FROM users WHERE name = $1', [user_name])
     result.num_tuples.zero? ? false : User.authenticate(result.values[0][2], password)
   end
 

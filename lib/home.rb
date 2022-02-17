@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 require 'pg'
 
 class Home
@@ -13,4 +12,5 @@ class Home
     result = @@connection.exec('SELECT * FROM homes;')
     result.map { |home| home['name'] }
   end
+
 end

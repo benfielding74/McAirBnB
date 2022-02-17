@@ -1,0 +1,27 @@
+<h1>Dates unavailable:</h1>
+    <ul>
+        <% @bookings.each do |booking| %>
+        
+          <li>Start date:<%= booking["start_date"] %> End date:<%= booking["end_date"] %></li>
+          
+
+        
+        <% end %>
+    </ul>
+
+
+<h2>Choose your dates:</h2>
+
+  <form action='/booked' method='post'>
+    <ul>
+      <label for="start_date">Start date:</label>
+      <input type="date" id="start" name="start_date" require>
+    </ul>
+    <ul>
+      <label for="end_date">End Date:</label>
+      <input type="date" id="end" name="end_date" require> 
+    </ul>   
+    <ul> 
+      <button type="submit">Book</button></tr>
+    </ul>
+  </form>
