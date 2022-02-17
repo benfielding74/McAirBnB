@@ -9,4 +9,15 @@ feature 'authentication' do
 
     expect(page).to have_content 'Welcome to McAirBnB Steve'
   end
+
+  it 'will not log in if incorrect credentials are entered' do
+    visit '/login' do
+      fill_in(:user_name, with: 'Jacob')
+      fill_in(:password, with: 'Onlyme')
+      click_button('Login')
+
+      expect(page).to have_content 'Please check your email or password'
+    end
+  end
 end
+

@@ -16,5 +16,18 @@ describe User do
       result = User.login('Ben', 'Password')
       expect(result).to eq false
     end
+
+    it 'prompts to re-enter if name or password is incorrect' do
+      connection = User.signup('Benf', 'Seekrit', db='mcairbnb_test')
+      result = User.login('Steve', 'Seekrit', db='mcairbnb_test')
+      expect(result).to eq false
+    end
+
+    it 'allows a user to log in with correct credentials' do
+      connection = User.signup('Barrington', 'SuperUser', db='mcairbnb_test')
+      result = User.login('Barrington', 'SuperUser', db='mcairbnb_test')
+      expect(result).to eq true
+    end
+    
   end
 end
