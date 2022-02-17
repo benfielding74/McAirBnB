@@ -88,7 +88,15 @@ This is week 7 of Makers Bootcamp - working as a team to engineer a project.
 <summary>Reflection</summary>
 </details>
 
+## To Run
 
+1. `git clone` the repository 
+2. `bundle install` in the cloned repo
+3. `rake init:all`
+4. `rake users:all`
+5. `rake homes:all`
+6. `rake bookings:all`
+7. `rackup -p <PORT>`
 
 
 
