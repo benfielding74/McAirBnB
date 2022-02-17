@@ -4,12 +4,14 @@ require 'sinatra'
 require 'sinatra/reloader'
 require './lib/user'
 require './lib/home'
+require './lib/bookings'
 
 class McAirBnB < Sinatra::Base
   enable :sessions
 
   def select_database
-    'mcairbnb_test' if ENV['ENVIRONMENT'] == 'test'
+    return 'mcairbnb_test' if ENV['ENVIRONMENT'] == 'test'
+
     'mcairbnb'
   end
 
@@ -36,6 +38,7 @@ class McAirBnB < Sinatra::Base
 
   get '/login' do
     @flash = session[:flash] || ''
+    User.connect(select_database)
     erb(:login)
   end
 
@@ -43,7 +46,6 @@ class McAirBnB < Sinatra::Base
     @user_name = params[:user_name]
     @password = params[:password]
     session[:user_name] = @user_name
-    User.connect(select_database)
     user = User.login(@user_name, @password)
 
     if user
@@ -85,6 +87,17 @@ class McAirBnB < Sinatra::Base
     @price = unwrap(price)
 
     ["<p> NAME: #{name}", "<p> DESCRIPTION: #{@description}", "<p> PRICE: #{@price}"]
+  end
+
+  get '/bookingsform' do
+    @bookings = Bookings.list_bookings
+    erb(:bookingsform)
+  end
+
+  post '/booked' do
+    @start_date = params[:start_date]
+    @end_date = params[:end_date]
+    erb(:confirmation)
   end
 
   run! if app_file == $PROGRAM_NAME

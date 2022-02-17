@@ -13,8 +13,7 @@ class User
   end
 
   def self.signup(user_name, password)
-    # encrypted_password = BCrypt::Password.create(password)
-    encrypted_password = password
+    encrypted_password = BCrypt::Password.create(password)
     @@connection.exec("INSERT INTO users (name, password) VALUES ('#{user_name}', '#{encrypted_password}');")
     @@connection
   end
@@ -26,8 +25,10 @@ class User
 
   def self.login(user_name, password)
     result = @@connection.exec('SELECT * FROM users WHERE name = $1', [user_name])
-    return false if result.num_tuples.zero?
+    result.num_tuples.zero? ? false : User.authenticate(result.values[0][2], password)
+  end
 
-    result.values[0][2] == password
+  def self.authenticate(stored_password, password)
+    BCrypt::Password.new(stored_password) == password
   end
 end

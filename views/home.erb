@@ -1,3 +1,4 @@
+
 <h1>Welcome to McAirBnB <%= @user_name %></h1>
 <ul>
   <% @homes.each do |home| %>
@@ -11,3 +12,7 @@
   <input type="text" name="price" placeholder='Price per night' maxlength='8' required/>
   <input type="submit" value="Submit listing" />
 </form>
+
+<!--<form action="/bookingsform">
+        <button type="submit" name="check_availability">Check Availability</button>
+</form>-->

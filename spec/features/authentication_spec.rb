@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 feature 'authentication' do
-  it 'a user can sign in' do
+  scenario 'a user can sign in' do
     User.connect('mcairbnb_test')
     User.signup('Steve', 'Password123')
 
@@ -11,5 +11,14 @@ feature 'authentication' do
     click_button('Login')
 
     expect(page).to have_content 'Welcome to McAirBnB Steve'
+  end
+
+  scenario 'will not log in if incorrect credentials are entered' do
+    visit '/login'
+    fill_in(:user_name, with: 'Jacob')
+    fill_in(:password, with: 'Onlyme')
+    click_button('Login')
+
+    expect(page).to have_content 'Please check your email or password'
   end
 end
