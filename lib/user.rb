@@ -28,8 +28,6 @@ class User
     result.num_tuples.zero? ? false : User.authenticate(result.values[0][2], password)
   end
 
-  private
-
   def self.authenticate(stored_password, password)
     BCrypt::Password.new(stored_password) == password
   end

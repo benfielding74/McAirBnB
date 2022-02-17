@@ -23,4 +23,3 @@ feature 'authentication' do
     end
   end
 end
-
