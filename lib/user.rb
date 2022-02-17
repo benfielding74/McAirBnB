@@ -1,15 +1,33 @@
+# frozen_string_literal: true
+
 require 'pg'
+require 'bcrypt'
 
 class User
+  attr_reader :signup, :add_home
 
-  attr_reader :signup
+  @@connection = nil
 
-  def self.signup(user_name, password, db = 'mcairbnb')
-    @user_name = user_name
-    @password = password
-    connection = PG.connect(dbname: db)
-    connection.exec("INSERT INTO users (name, password) VALUES ('#{@user_name}', '#{@password}');")
-    connection
+  def self.connect(dbname)
+    @@connection = PG.connect(dbname: dbname)
   end
 
+  def self.signup(user_name, password)
+    # encrypted_password = BCrypt::Password.create(password)
+    encrypted_password = password
+    @@connection.exec("INSERT INTO users (name, password) VALUES ('#{user_name}', '#{encrypted_password}');")
+    @@connection
+  end
+
+  def self.add_home(name, description, price)
+    @@connection.exec("INSERT INTO homes (name, description, price) VALUES ('#{name}','#{description}','#{price}');")
+    @@connection
+  end
+
+  def self.login(user_name, password)
+    result = @@connection.exec('SELECT * FROM users WHERE name = $1', [user_name])
+    return false if result.num_tuples.zero?
+
+    result.values[0][2] == password
+  end
 end

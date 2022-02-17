@@ -1,15 +1,11 @@
- <div>
-  <h3>Welcome to McAirbnb <%= "#{@user_name}" %></h3>
 
-  </div>
+<h1>Welcome to McAirBnB <%= @user_name %></h1>
+<ul>
+  <% @homes.each do |home| %>
+    <li><a href="/home/<%=home%>"><%= home %></a></li>
+  <% end %>
+</ul>
 
-  <ul>
-     <% @homes.each do |home| %>
-      <li><%= home %></li>
-      <% end %>
-  </ul>
-
-    <form action="/bookingsform">
+<form action="/bookingsform">
         <button type="submit" name="check_availability">Check Availability</button>
-    </form>
-
+</form>
