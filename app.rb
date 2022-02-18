@@ -92,6 +92,7 @@ class McAirBnB < Sinatra::Base
   end
 
   get '/bookingsform' do
+    Bookings.connect(select_database)
     @bookings = Bookings.list_bookings
     erb(:bookingsform)
   end

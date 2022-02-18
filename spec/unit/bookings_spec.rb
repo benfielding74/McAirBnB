@@ -10,14 +10,4 @@ describe Bookings do
       expect(results).to have_key('start_date')
     end
   end
-
-
-  describe 'shows calendar' do
-    it 'shows dates' do
-      result = Bookings.bookingsform
-      expect(result).to include("Choose your dates:")
-    end
-  end
 end
-
-
