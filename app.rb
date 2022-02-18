@@ -5,6 +5,8 @@ require 'sinatra/reloader'
 require './lib/user'
 require './lib/home'
 require './lib/bookings'
+require 'date'
+
 
 class McAirBnB < Sinatra::Base
   enable :sessions
@@ -97,8 +99,14 @@ class McAirBnB < Sinatra::Base
   post '/booked' do
     @start_date = params[:start_date]
     @end_date = params[:end_date]
-    erb(:confirmation)
+    if Bookings.booked(@start_date, @end_date)
+      erb(:confirmation)
+    else
+      "Sorry, date unavailable"
+    end
   end
+
+
 
   run! if app_file == $PROGRAM_NAME
 end
