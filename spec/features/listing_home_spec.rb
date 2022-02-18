@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 feature 'Listing a home' do
   scenario 'the user has a form to list spaces' do
     visit('/home')

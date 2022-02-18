@@ -78,15 +78,14 @@ class McAirBnB < Sinatra::Base
 
   get '/home/*' do
     connection = PG.connect(dbname: select_database)
-    name = params['splat'].first
+    @name = params['splat'].first
 
-    description = connection.exec("SELECT description from homes where name='#{name}';")
+    description = connection.exec("SELECT description from homes where name='#{@name}';")
     @description = unwrap(description)
 
-    price = connection.exec("SELECT price from homes where name='#{name}';")
+    price = connection.exec("SELECT price from homes where name='#{@name}';")
     @price = unwrap(price)
-
-    ["<p> NAME: #{name}", "<p> DESCRIPTION: #{@description}", "<p> PRICE: #{@price}"]
+    erb(:home_desc)
   end
 
   get '/bookingsform' do
