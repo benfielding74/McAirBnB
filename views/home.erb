@@ -3,7 +3,6 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
@@ -19,7 +18,8 @@
     </nav>  
     <div class="row p-3">
       
-      <div class="col-md-4"
+      <div class="col-md-4">
+      <h4> Submit your listing </h4>
         <form action='/listing' method='post'>
           <div class="mb-3">
             <label for="name" class="form-label">Home title</label>
@@ -27,7 +27,7 @@
           </div>
           <div class="mb-3">
             <label for="description" class="form-label">Home description</label>
-            <input type="text" class="form-control" name="description" placeholder='max 255 chars' maxlength='60' required/>
+            <input type="text" class="form-control" name="description" placeholder='max 255 chars' maxlength='255' required/>
           </div>
           <div class="mb-3"
             <label for="price" class="form-label">Price per night</label>
@@ -37,6 +37,12 @@
         </form>
       </div>
       <div class="col-md-6">
+
+        <div class="d-flex flex-row mb-3">
+          <img src="https://i.imgur.com/M6WbGRu.jpeg" class="w-25 img-thumbnail rounded float-start" alt="Cottage with garden">
+          <img src="https://i.imgur.com/PN4cPNl.jpeg" class="w-25 img-thumbnail rounded mx-auto d-block" alt="Norwegian cottage">
+          <img src="https://i.imgur.com/2c1FfIY.jpeg" class="w-25 img-thumbnail rounded float-end" alt="Rooftop cottage">
+        </div>
         <ul class="list-group">
           <% @homes.each do |home| %>
           <li class="list-group-item fs-3"><a href="/home/<%=home%>"><%= home %></a></li>
